@@ -1,6 +1,5 @@
 import axios from 'axios'
 import store from '@/store'
-import utils from 'axios/lib/utils'
 // import { Spin } from 'iview'
 const addErrorLog = errorInfo => {
   const { statusText, status, request: { responseURL } } = errorInfo
@@ -58,8 +57,7 @@ class HttpRequest {
   }
   request (options) {
     const instance = axios.create()
-	// 此处使用深拷贝
-    options = utils.merge(this.getInsideConfig(), options)
+    options = Object.assign(this.getInsideConfig(), options)
     this.interceptors(instance, options.url)
     return instance(options)
   }

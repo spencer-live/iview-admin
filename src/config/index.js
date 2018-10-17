@@ -1,9 +1,5 @@
 export default {
   /**
-   * 用于后台登录验证
-   */
-  tokenKey: 'token',
-  /**
    * @description token在Cookie中存储的天数，默认1天
    */
   cookieExpires: 1,
